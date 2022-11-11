@@ -1,21 +1,20 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        vector<int> arr(nums);
-        int n = arr.size(), k = -1;
+        int n = nums.size(), k = -1;
         stack<int> st;
         for(int i=0; i<n; i++) {
             if(st.empty()){
-                st.push(arr[i]);
-                nums[++k] = arr[i];
+                st.push(nums[i]);
+                nums[++k] = nums[i];
                 continue;
             }
-            if(st.top() != arr[i]) {
-                st.push(arr[i]);
-                nums[++k] = arr[i];
+            if(st.top() != nums[i]) {
+                st.push(nums[i]);
+                nums[++k] = nums[i];
             }
             else {
-                st.push(arr[i]);
+                st.push(nums[i]);
             }
         }
         return k+1;
