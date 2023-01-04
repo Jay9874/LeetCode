@@ -4,13 +4,8 @@ public:
     int minimumRounds(vector<int>& t) {
         int n = t.size();
         unordered_map<int, int> mp;
-        for(auto it: t){
-            auto mp_it = mp.find(it);
-            if(mp_it == mp.end()){
-                mp.insert({it, 1});
-            }else {
-                mp[it]++;
-            }
+        for(auto &it: t){
+            mp[it]++;
         }
         int min_round = 0;
         for(auto it: mp){
